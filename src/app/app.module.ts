@@ -10,6 +10,7 @@ import { RecepieListComponent } from './recepies/recepie-list/recepie-list.compo
 import { RecepieDetailsComponent } from './recepies/recepie-details/recepie-details.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecepieItemComponent } from './recepies/recepie-list/recepie-item/recepie-item.component';
+import { OpenclassDirective } from './shared/openclass.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RecepieItemComponent } from './recepies/recepie-list/recepie-item/recep
     RecepieListComponent,
     RecepieDetailsComponent,
     ShoppingEditComponent,
-    RecepieItemComponent
+    RecepieItemComponent,
+    OpenclassDirective
   ],
   imports: [
     BrowserModule,

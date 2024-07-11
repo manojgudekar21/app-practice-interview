@@ -9,6 +9,7 @@ import { Recepie } from 'src/app/shared/recepie.model';
 export class RecepieItemComponent implements OnInit {
 
   @Input() recepie:Recepie;
+  @Input() index:number;
 
   constructor() { }
 
