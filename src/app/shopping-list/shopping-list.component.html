@@ -5,8 +5,8 @@
 </div>
 <div class="row">
     <div class="col-xs-10">
-        <a href="#" class="list-group-item">
-            name and amount
+        <a href="#" class="list-group-item" *ngFor="let ingrident of ingridents">
+            {{ingrident.ingrident}} ({{ingrident.amount}})
         </a>
     </div>
 </div>

@@ -1,5 +1,5 @@
 export class Recepie {
-    constructor(private name: string,
-        private discription: string,
-        private imagePath: string) { }
+    constructor(public name: string,
+        public discription: string,
+        public imagePath: string) { }
 }
