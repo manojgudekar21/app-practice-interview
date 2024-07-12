@@ -11,8 +11,9 @@ import { RecepieDetailsComponent } from './recepies/recepie-details/recepie-deta
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecepieItemComponent } from './recepies/recepie-list/recepie-item/recepie-item.component';
 import { OpenclassDirective } from './shared/openclass.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './recepies/recepie-details/edit/edit.component';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import { EditComponent } from './recepies/recepie-details/edit/edit.component';
     ShoppingEditComponent,
     RecepieItemComponent,
     OpenclassDirective,
-    EditComponent
+    EditComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
