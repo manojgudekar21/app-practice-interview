@@ -8,8 +8,8 @@
         <a appOpenclass> 
             <button class="btn btn-primary dropdown-toggle">Manage <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a>To Shopping List</a></li>
-                <li><a>edit</a></li>
+                <li><a style="cursor: pointer;" (click)="toShopping()">To Shopping List</a></li>
+                <li><a style="cursor: pointer;">edit</a></li>
             </ul>
         </a>
     </div>
@@ -22,5 +22,10 @@
 <div class="row">
     <div class="col-xs-12">
         {{recepie.discription}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12" *ngFor="let ingrident of recepie.ingridents">
+        {{ingrident.ingrident}} ({{ingrident.amount}})
     </div>
 </div>

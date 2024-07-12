@@ -5,7 +5,10 @@
 </div>
 <div class="row">
     <div class="col-xs-10">
-        <a href="#" class="list-group-item" *ngFor="let ingrident of ingridents">
+        <a class="list-group-item" 
+        style="cursor: pointer;" 
+        *ngFor="let ingrident of ingridents;let i = index" 
+        (click)="onClick(i)">
             {{ingrident.ingrident}} ({{ingrident.amount}})
         </a>
     </div>
