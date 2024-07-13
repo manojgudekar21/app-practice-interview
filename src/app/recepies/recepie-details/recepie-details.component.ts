@@ -18,7 +18,7 @@ export class RecepieDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params:Params)=>{
-      this.id = params['id']
+      this.id = +params['id']
       this.recepie = this.recepieService.getRecepieBYId(this.id)
     })
   }
@@ -29,6 +29,10 @@ export class RecepieDetailsComponent implements OnInit {
 
   toEdit(){
     this.router.navigate(['edit'], {relativeTo:this.route})
+  }
+  onDelete(){
+    this.recepieService.onDeleteRecepie(this.id)
+    this.router.navigate(['/recepies'])
   }
 
 }

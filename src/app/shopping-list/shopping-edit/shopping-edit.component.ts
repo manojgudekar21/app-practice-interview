@@ -13,12 +13,12 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild('f') formData: NgForm;
   index: number;
   editMode = false;
-  ingrident:Ingrident;
+  ingrident: Ingrident;
 
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit(): void {
-    this.slService.onSelectedIngrident.subscribe((index:number)=>{
+    this.slService.onSelectedIngrident.subscribe((index: number) => {
       this.index = index
       this.editMode = true
       this.ingrident = this.slService.ingridentacctoindex(index)
@@ -38,6 +38,8 @@ export class ShoppingEditComponent implements OnInit {
     } else {
       this.slService.updateIngrident(this.index, NewIngrident)
     }
+    this.formData.reset()
+    this.editMode = false
   }
 
   onDelete() {
@@ -46,7 +48,7 @@ export class ShoppingEditComponent implements OnInit {
     this.editMode = false
   }
 
-  onClear(){
+  onClear() {
     this.formData.reset()
     this.editMode = false
   }

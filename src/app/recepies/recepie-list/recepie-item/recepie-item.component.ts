@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recepie } from 'src/app/shared/recepie.model';
+import { RecepieService } from '../../recepie.service';
 
 @Component({
   selector: 'app-recepie-item',
@@ -11,9 +12,13 @@ export class RecepieItemComponent implements OnInit {
   @Input() recepie:Recepie;
   @Input() index:number;
 
-  constructor() { }
+  constructor(private recepieService:RecepieService) { }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    this.recepieService.onSelectedRecepie.next(this.index)
   }
 
 }
