@@ -5,14 +5,15 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecepieDetailsComponent } from './recepies/recepie-details/recepie-details.component';
 import { EditComponent } from './recepies/recepie-details/edit/edit.component';
 import { StartComponent } from './start/start.component';
+import { ResolverService } from './shared/resolver.service';
 
 const routes: Routes = [
   {path:'', redirectTo:'recepies', pathMatch:'full'},
   {path:'recepies', component:RecepiesComponent, children:[
     {path:'', component:StartComponent},
     {path:'new', component:EditComponent},
-    {path:':id', component:RecepieDetailsComponent},
-    {path:':id/edit', component:EditComponent}
+    {path:':id', component:RecepieDetailsComponent, resolve : [ResolverService]},
+    {path:':id/edit', component:EditComponent, resolve : [ResolverService]}
   ]},
   {path:'shopping-list', component: ShoppingListComponent},
 ];

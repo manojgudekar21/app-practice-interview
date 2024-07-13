@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../shared/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storageService:StorageService) { }
 
   ngOnInit(): void {
   }
 
+  onSave(){
+    this.storageService.onSave()
+  }
+  onFetch(){
+    this.storageService.onFetch().subscribe()
+  }
+
+
+  
 
 }

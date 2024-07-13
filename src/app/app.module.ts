@@ -28,7 +28,7 @@ import { StartComponent } from './start/start.component';
     RecepieItemComponent,
     OpenclassDirective,
     EditComponent,
-    StartComponent
+    StartComponent,
   ],
   imports: [
     BrowserModule,
