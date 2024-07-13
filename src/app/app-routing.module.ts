@@ -6,6 +6,7 @@ import { RecepieDetailsComponent } from './recepies/recepie-details/recepie-deta
 import { EditComponent } from './recepies/recepie-details/edit/edit.component';
 import { StartComponent } from './start/start.component';
 import { ResolverService } from './shared/resolver.service';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'recepies', pathMatch:'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path:':id', component:RecepieDetailsComponent, resolve : [ResolverService]},
     {path:':id/edit', component:EditComponent, resolve : [ResolverService]}
   ]},
+  {path: 'auth',component:AuthComponent},
   {path:'shopping-list', component: ShoppingListComponent},
 ];
 

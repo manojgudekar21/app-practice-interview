@@ -15,6 +15,8 @@ import { OpenclassDirective } from './shared/openclass.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './recepies/recepie-details/edit/edit.component';
 import { StartComponent } from './start/start.component';
+import { AuthComponent } from './auth/auth.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { StartComponent } from './start/start.component';
     OpenclassDirective,
     EditComponent,
     StartComponent,
+    AuthComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
