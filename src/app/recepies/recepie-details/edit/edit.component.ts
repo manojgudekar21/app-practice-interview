@@ -19,7 +19,7 @@ export class EditComponent implements OnInit, OnDestroy {
   id: number
   editMode = false
 
-  constructor(private recepieService: RecepieService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private recepieService: RecepieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params: Params) => {
@@ -60,30 +60,31 @@ export class EditComponent implements OnInit, OnDestroy {
     })
   }
 
-  onSubmit(){
-    if(this.editMode){
+  onSubmit() {
+    if (this.editMode) {
       this.recepieService.updateRecepie(this.id, this.formData.value)
-    }else{
+    } else {
       this.recepieService.addNewRecepie(this.formData.value)
     }
     this.router.navigate(['../'])
   }
-  onCancel(){
+  onCancel() {
     this.router.navigate(['../'])
   }
 
-  addIngrident(){
+  get IngredientControls(): any {
+    // console.log("form : ", this.formData);
+    return this.formData.get('ingridents')['controls'];
+  }
+
+  addIngrident() {
     (<FormArray>this.formData.get('ingridents')).push(new FormGroup({
       'ingrident': new FormControl(null),
       'amount': new FormControl(null)
     }))
   }
-  onRemove(index:number){
+  onRemove(index: number) {
     (<FormArray>this.formData.get('ingridents')).removeAt(index)
   }
-
-
-
-
 
 }

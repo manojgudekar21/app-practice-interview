@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../shared/storage.service';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +11,13 @@ import { StorageService } from '../shared/storage.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private storageService:StorageService) { }
+  isAuthenticate = false
+  constructor(private storageService:StorageService, private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
+    this.authService.user.subscribe((user:User)=>{
+      this.isAuthenticate = user? true : false
+    })
   }
 
   onSave(){
@@ -20,7 +27,11 @@ export class HeaderComponent implements OnInit {
     this.storageService.onFetch().subscribe()
   }
 
+  onLogout(){
+    this.authService.logout()
+  }
 
-  
+
+
 
 }

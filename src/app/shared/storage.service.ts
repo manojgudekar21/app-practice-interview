@@ -1,15 +1,16 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
-import { map, tap } from "rxjs";
+import { exhaustMap, map, take, tap } from "rxjs";
 import { RecepieService } from "../recepies/recepie.service";
 import { Recepie } from "./recepie.model";
+import { AuthService } from "../auth/auth.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class StorageService implements OnInit {
 
-    constructor(private http: HttpClient, private recepieService: RecepieService) { }
+    constructor(private http: HttpClient, private recepieService: RecepieService, private authService: AuthService) { }
 
     ngOnInit(): void {
 

@@ -14,12 +14,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active"><a routerLink="recepies">Recepies </a></li>
-          <li routerLinkActive="active"><a routerLink="auth">Authentication </a></li>
+          <li routerLinkActive="active"><a routerLink="recepies" *ngIf="isAuthenticate">Recepies </a></li>
+          <li routerLinkActive="active"><a routerLink="auth" *ngIf="!isAuthenticate">Authentication </a></li>
           <li routerLinkActive="active"><a routerLink="shopping-list">Shopping List</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown" appOpenclass>
+          <li *ngIf="isAuthenticate"><a style="cursor: pointer;" (click)="onLogout()">Logout</a></li>
+          <li class="dropdown" appOpenclass *ngIf="isAuthenticate">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a style="cursor: pointer;" (click)="onSave()">Save Data</a></li>
